@@ -1,24 +1,6 @@
 provider "aws" {
     region = "us-east-1"
 }
-/*
-resource "aws_instance" "example" {
-    ami = "ami-0c94855ba95c71c99"
-    instance_type = "t2.micro"
-    vpc_security_group_ids = ["${aws_security_group.allow-http.id}"]
-
-    tags = {
-        Name = "Terraform-Example-EC2"
-    }
-    
-    user_data = <<-EOF
-                #! /bin/bash
-                echo "This is a test webpage inside EC2" > index.html
-                nohup busybox httpd -f -p "${var.server_port}" &
-                EOF
-
-}
-*/
 
 resource "aws_security_group" "allow-http" {
     name = "allow-http-sg"
