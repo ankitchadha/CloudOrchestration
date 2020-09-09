@@ -34,7 +34,7 @@ resource "aws_launch_configuration" "lc-tf-test" {
     security_groups = ["${aws_security_group.allow-http.id}"]
     user_data = <<-EOF
                 #! /bin/bash
-                yum install httpd
+                yum install -y httpd
                 echo "<html><h1>This is a test webpage inside EC2</h1></html>" > /var/www/html/index.html
                 service httpd start
                 EOF
